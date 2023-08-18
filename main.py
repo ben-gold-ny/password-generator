@@ -1,27 +1,24 @@
 import random
 
-characters = "abcdefghijklmnopqrstuvwxyz"
+characters = string.ascii_lowercase
 
 #password length
-length = input("How many characters should the password be?\n")
-length = int(length)
+length = int(input("How many characters should the password be?\n"))
 
 #case
-case = input("Case sensitive? [Y/N]\n")
-if case == "Y" or case == "y" or case == "yes" or case == "Yes" or case == "YES":
-    case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+case = input("Case sensitive? [Y/N]\n").lower()
+if case == "y" or case == "yes":
+    case = string.ascii_uppercase
     characters += case
-elif case == "N" or case == "n" or case == "no" or case == "No" or case == "NO":
-    case = ""
+elif case == "n" or case == "no":
     characters = characters.replace(case, "")
 
 #numbers
-numbers = input("Numbers? [Y/N]\n")
-if numbers == "Y" or numbers == "y" or numbers == "yes" or numbers == "Yes" or numbers == "YES":
+numbers = input("Numbers? [Y/N]\n").lower()
+if numbers == "y" or numbers == "yes":
     numbers = "1234567890"
     characters += numbers
-elif numbers == "N" or numbers == "n" or numbers == "no" or numbers == "No" or numbers == "NO":
-    numbers = ""
+elif numbers == "n" or numbers == "no":
     characters = characters.replace(numbers, "")
 
 #special
